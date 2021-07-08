@@ -1,4 +1,4 @@
-#Game of War
+# Game of War
 
 >“Victorious warriors win first and then go to war, 
 >while defeated warriors go to war first and then seek to win”
@@ -13,4 +13,4 @@ This is my first coding project. It is a browser based version of the card game,
 4. The winner takes both cards and puts them at the bottom of the deck.
 5. Once one player is completly out of cards, the game is over.
 
-### *still a work in progress. once the game is playable I will update the README *
+### *still a work in progress. once the game is playable I will update the README*
