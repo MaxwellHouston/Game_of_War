@@ -42,29 +42,7 @@ const drawPhase = () =>{
     table.push(playerDeck.shift());
     table.push(computerDeck.shift());
 }
-drawPhase();
 
-// Game play phase
-const playPhase = () =>{
-    if(table[0].number > table[1].number){
-    console.log(`Your ${table[0].name} beats the computer's ${table[1].name}!`);
-    playerDeck.push(table[0]);
-    playerDeck.push(table[1]);
-    table.splice(0,2);
-
-    }
-    else if( table[0].number < table[1].number){
-    console.log(`Your ${table[0].name} loses to the computer's ${table[1].name}!`);
-    computerDeck.push(table[0]);
-    computerDeck.push(table[1]);
-    table.splice(0,2);
-   
-    } 
-    else{
-    console.log(`Your ${table[0].name} ties the computer's ${table[1].name}! Now
-    each player puts three cards facedown and turns the last one up. Good luck!`);
-    }  
-}
 //Tie game code
 const tiePlay = () =>{
     
@@ -127,16 +105,40 @@ const tiePlay = () =>{
         //Reruns tie procedure
         tiePlay();
     }
+}
+// Game play phase
+const playPhase = () =>{
+    drawPhase();
+    if(table[0].number > table[1].number){
+    console.log(`Your ${table[0].name} beats the computer's ${table[1].name}!`);
+    playerDeck.push(table[0]);
+    playerDeck.push(table[1]);
+    table.splice(0,2);
 
+    }
+    else if( table[0].number < table[1].number){
+    console.log(`Your ${table[0].name} loses to the computer's ${table[1].name}!`);
+    computerDeck.push(table[0]);
+    computerDeck.push(table[1]);
+    table.splice(0,2);
+   
+    } 
+    else{
+    console.log(`Your ${table[0].name} ties the computer's ${table[1].name}! Now
+    each player puts three cards facedown and turns the last one up. Good luck!`);
+    tiePlay()
+    }  
 }
 
+playPhase()
+playPhase()
+playPhase()
+playPhase()
+playPhase()
+playPhase()
+playPhase()
+playPhase()
+console.log(computerDeck.length);
+console.log(playerDeck.length);
 
 
-
-
-        console.log(playerDeck.length)
-        console.log(computerDeck.length)
-        tiePlay()
-        console.log(playerDeck.length)
-        console.log(computerDeck.length)
-        console.log(tiePot.length)
