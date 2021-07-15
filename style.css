@@ -13,12 +13,11 @@ nav.links {
 }
 aside {
     display: flex;
-    color: whitesmoke;
-    background-color: black;
+    color: white;
+    background-color: rgba(0,0,0,.40);
     text-align: center;
     margin-left: 40%;
     margin-right:40%;
-    opacity: .35;
 
 }
 h2 {
