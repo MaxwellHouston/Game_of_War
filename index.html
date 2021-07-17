@@ -8,12 +8,10 @@
 <body>
     <header>
         <h1>The Game Of War</h1>
-        <aside>
-            <blockquote>
+        <aside class='quote'>      
                 <p>“Victorious warriors win first and then go to war,<br> 
                     while defeated warriors go to war first and then seek to win”
-                    <br>― Sun Tzu, The Art of War</p>
-            </blockquote>
+                    <br>― Sun Tzu, The Art of War</p>   
         </aside>
         <nav>
             <ul class='links'>
@@ -25,39 +23,53 @@
     </header>
     <hr />
     <main>
-        <section id="game">
-            <!--Gameplay goes here-->
-            <p><br><br><br><br><br><br></p>
-        </section>
+        <div class = 'gameplay'>
+            <div class="columnone">
+                <img src='./images/column.png' width='200' height='800'>
+            </div>
+            <section id="game">
+                <!--Gameplay goes here-->
+               
+            </section>
+            <div class="columntwo">
+                <img src='./images/column.png' width='200' height='800'>
+            </div>
+        </div>     
     <hr />
         <section id="howtoplay">
             <h2>How to Play</h2>
             <ol>
-                <li>You play by spliting a deck of cards in two,
-                 and you and your opponent each get half.
-                 <em>For now it's just a computer</em></li>
-                <li>Draw one card off the top of your deck 
-                 and the opponent does as well.</li>
+                <li>Play starts by spliting a deck of cards in two,
+                 and you and your opponent each get half.</li>
+                <li>Place one card off the top of your deck on the table 
+                 and the opponent does this as well.</li>
+                <li>In case of a tie, each player puts down two addition cards face down, and a third one face up.</li>
+                <li>Repeat step 3 if necessary.</li> 
                 <li>Whoever has the highest card wins the hand.</li>
-                <li>The winner takes both cards and puts 
+                <li>The winner takes all cards on the table and puts 
                  them at the bottom of their deck.</li>
                 <li>Once one player is completly out of cards, 
                  the game is over.</li>
             </ol>
         </section>
+        <hr>
+        <section id="info">   
+            <h2>Project Info</h2>
+            <div class="info">
+                <p>This browser based game is based on the card game, war. It was made with JavaScript, HTML, and CSS.</p>
+                <p>I started this project to work along side the curriculum at Codecademy. I'm currently taking the full-stack engineering course and have been applying what I learn to this game.</p>
+                <p>If you want to contact me or see more of my work click on the link below to my GitHub page.</p> 
+            </div>   
+        </section>
     </main>
     <hr />
     <footer>
-        <section id="info">
-            <h2>Project Info</h2>
-            <p>This project is put together using JavaScript, HTML, and CSS.</p>
-            <p>You can reach me at <a href='https://github.com/MaxwellHouston'>https://github.com/MaxwellHouston</a></p>
-        </section>
+        <ul class = 'contact'>
+            <li class='git'><a href='https://github.com/MaxwellHouston'>GitHub</a></li>
+            <li class='insta'><a href=''>Instagram</a></li>
+            <li class='twitter'><a href=''>Twitter</a></li>
+            <li class='gmail'><a href=''>Gmail</a></li>
+        </ul>    
     </footer>
-
-
-
-
 </body>
-
 </html>
