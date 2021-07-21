@@ -62,11 +62,9 @@ h1 {
 }
 
 /* Game Play Section*/
-
-#game,
 .columnone,
 .columntwo {
-    display: inline-block;
+    display: none;
 }
 
 .columnone {
@@ -78,14 +76,155 @@ h1 {
 .columntwo {
     position: absolute;
     right: 300px;
-    margin: 10px;
+    margin:10px;
 }
 
 #game {
     height: 800px;
     width: 800px;
-    margin: 0 50px;
+    margin: 0 auto;
+    background-color:black;
 }
+
+#game img {
+    position: relative;
+    height: 150px;
+    width: 100px;
+}
+
+#your-deck {   
+    top: 50px;
+    left: 50px;
+}
+
+#opp-deck {
+    top: 600px;
+    left: 550px;
+}
+
+.table {
+    position: relative;
+    height: 150px;
+    width: 100px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#your-play {
+    left: 300px;
+    top: 100px;
+}
+
+#opp-play {
+    left:400px;
+    top: 100px;
+}
+
+.counter {
+    position: relative;
+    height: 50px;
+    width: 100px;
+    color: white;
+    text-align:center;
+}
+
+#your-counter {
+    top: -380px;
+    left: 170px;
+}
+
+#opp-counter {
+    top: 100px;
+    left: 530px;
+}
+
+.tie-container  {
+    position: relative;
+    height: 150px;
+    width: 200px;
+}
+
+#your-tie-one {
+    top: -350px;
+    left: 500px;
+}
+
+#opp-tie-one {
+    top: -315px;
+    left: 100px;
+}
+
+#your-tie-two {
+    top: -825px;
+    left: 500px;
+}
+
+#opp-tie-two {
+    top: -440px;
+    left: 100px;
+}
+
+.tie-container div {
+    position: relative;
+    height: 150px;
+    width: 100px;
+    border: 1px solid red;
+    border-radius: 8px;
+    background-color: blue;
+}
+
+.card-one {
+    right: -100px;
+    display: block;
+}
+
+.card-two {
+    top: -150px;
+    right: -50px;
+    display: block;
+}
+
+.card-three {
+    top: -300px;
+    display: block;
+}
+
+.button-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    width: 600px;
+    margin: 40px auto;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+    padding: 10px;
+    margin: auto 25px;
+    background-color: black;
+    border: 5px ridge rgb(58, 56, 56);
+    font-family: 'Papyrus';
+    font-weight: bold;
+    font-size: 20px;
+    color: #C39312;
+}
+
+.scroll-box {
+    width: 250px;
+    height: 150px;
+    color: #C39312;
+    font-family: 'Papyrus';
+    background-color: black;
+    position: relative;
+    top: -950px;
+    left: 25px;
+    
+}
+
+
+
+
 /* How To PLay Section */
 h2 {
     text-align: center;

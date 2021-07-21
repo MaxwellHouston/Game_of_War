@@ -1,10 +1,9 @@
 // GamePlay
 
-const {deck} = require('./deckBuilder.js');
+import{deck} from './deckBuilder.js';
 let playerDeck = [];
 let computerDeck = [];
 let table = [];
-let tieStatus ;
 let player3 = [];
 let computer3 = [];
 let tiePot = [];
@@ -50,7 +49,7 @@ const tiePlay = () =>{
     computer3 = computerDeck.splice(0,3);
 
     if(player3[2].number > computer3[2].number){
-        console.log(`Your ${player3[2].name} beats the computer's ${computer3[2].name}!
+        updateText(`${textBox.innerText}  Your ${player3[2].name} beats the computer's ${computer3[2].name}!
         That's a good haul!`);
         //Adding winnings to your deck
         for(let i = 0; i < player3.length; i++){
@@ -73,7 +72,7 @@ const tiePlay = () =>{
     
     }
     else if (player3[2].number < computer3[2].number){
-        console.log(`Your ${player3[2].name} loses to the computer's ${computer3[2].name}!
+        updateText(`${textBox.innerText}   Your ${player3[2].name} loses to the computer's ${computer3[2].name}!
         That's a big loss!`);
         // Adding winnings to computers deck
         for(let j = 0; j < player3.length; j++){
@@ -95,7 +94,7 @@ const tiePlay = () =>{
         
     }
     else{
-        console.log(`Your ${player3[2].name} ties to the computer's ${computer3[2].name}!
+        updateText(`${textBox.innerText}   Your ${player3[2].name} ties to the computer's ${computer3[2].name}!
         Let's up the ante!`);
         //adds the played cards to a pot
         for(let i = 0; i < player3.length; i++){
@@ -110,35 +109,62 @@ const tiePlay = () =>{
 const playPhase = () =>{
     drawPhase();
     if(table[0].number > table[1].number){
-    console.log(`Your ${table[0].name} beats the computer's ${table[1].name}!`);
+    updateText(`Your ${table[0].name} beats the computer's ${table[1].name}!`);
     playerDeck.push(table[0]);
     playerDeck.push(table[1]);
     table.splice(0,2);
 
     }
     else if( table[0].number < table[1].number){
-    console.log(`Your ${table[0].name} loses to the computer's ${table[1].name}!`);
+    updateText(`Your ${table[0].name} loses to the computer's ${table[1].name}!`);
     computerDeck.push(table[0]);
     computerDeck.push(table[1]);
     table.splice(0,2);
    
     } 
     else{
-    console.log(`Your ${table[0].name} ties the computer's ${table[1].name}! Now
+    updateText(`Your ${table[0].name} ties the computer's ${table[1].name}! Now
     each player puts three cards facedown and turns the last one up. Good luck!`);
     tiePlay()
-    }  
+    }
+    
+    playerCounter.innerHTML = `${playerDeck.length}`;
+    computerCounter.innerHTML = `${computerDeck.length}`;
 }
 
-playPhase()
-playPhase()
-playPhase()
-playPhase()
-playPhase()
-playPhase()
-playPhase()
-playPhase()
-console.log(computerDeck.length);
-console.log(playerDeck.length);
+const reset = () => {
+    playerDeck = [];
+    computerDeck = [];
+    table = [];
+    player3 = [];
+    computer3 = [];
+    tiePot = [];
+    shuffleDeck(deck);
+    splitDeck(deck);
+    playerCounter.innerHTML = `${playerDeck.length}`;
+    computerCounter.innerHTML = `${computerDeck.length}`;
+}
+
+let drawButton = document.getElementById('draw-button');
+let resetButton = document.getElementById('reset-button');
+let playerCounter = document.getElementById('pc');
+let computerCounter = document.getElementById('oc');
+let textBox = document.getElementById('game-text');
+
+const updateText = (input) => {
+    textBox.innerHTML= `${input}`
+}
+drawButton.onclick = playPhase;
+resetButton.onclick = reset;
+
+
+
+
+
+
+
+
+
+
 
 

@@ -23,7 +23,7 @@ const deckCompiler = (_name,_number,_suit) => {
   }
 }
 const populateDeck = () => {
-  for(i=0; i<=12; i++){
+  for(let i=0; i<=12; i++){
     let spades = suits[i] + ' of spades';
     let hearts = suits[i]+' of hearts';
     let diamonds = suits[i]+' of diamonds';
@@ -38,7 +38,7 @@ const populateDeck = () => {
 populateDeck();
 
 
-module.exports.deck = deck;
+export {deck};
 
 
 

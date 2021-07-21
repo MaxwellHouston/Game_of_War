@@ -3,6 +3,7 @@
 
 <head>
     <link href='./style.css' rel='stylesheet'>
+    <script type='module' src='./gamePlay.js' async></script>
     <title>Game of War</title>
 </head>
 <body>
@@ -28,9 +29,48 @@
                 <img src='./images/column.png' width='200' height='800'>
             </div>
             <section id="game">
-                <!--Gameplay goes here-->
-               
+                <img id="your-deck" src='./images/card-back-blue.png' alt = 'Your deck of cards'>
+                <img id="opp-deck" src='./images/card-back-black.png' alt = 'Opponents deck of cards'>
+                <div class='table' id='your-play'></div>
+                <div class='table' id='opp-play'></div>
+                <div class='counter' id='your-counter'>
+                    <p id='pc'>26</p> 
+                    <p>Cards in Deck</p>
+                </div>
+                <div class='counter' id='opp-counter'>
+                    <p id='oc'>26</p>
+                    <p>Cards in Deck</p>
+                </div>
+                <div class='tie-container' id='your-tie-one'>
+                    <div class='card-one'></div>
+                    <div class='card-two'></div>
+                    <div class='card-three' id='your-tie-card'></div>
+                </div>
+                <div class='tie-container' id='opp-tie-one'>
+                    <div class='card-one'></div>
+                    <div class='card-two'></div>
+                    <div class='card-three' id='opp-tie-card'></div>
+                </div>
+                <div class='tie-container' id='your-tie-two'>
+                    <div class='card-one'></div>
+                    <div class='card-two'></div>
+                    <div class='card-three' id='your-tie-card-two'></div>
+                </div>
+                <div class='tie-container' id='opp-tie-two'>
+                    <div class='card-one'></div>
+                    <div class='card-two'></div>
+                    <div class='card-three' id='opp-tie-card-two'></div>
+                </div>
+                <div class='scroll-box'>
+                    <p id='game-text'>Some sample text to see how this will all work<br>
+                    now lets see what parts are hidden <br>
+                and if we can even see whats going to happen <br> maybe it will kust look wierd</p>
+                </div>
             </section>
+            <div class='button-box'>
+                <button id="draw-button" type='button'>Draw</button>
+                <button id="reset-button" type='button'>Reset</button>
+            </div>
             <div class="columntwo">
                 <img src='./images/column.png' width='200' height='800'>
             </div>
@@ -69,7 +109,7 @@
             <li class='insta'><a href=''>Instagram</a></li>
             <li class='twitter'><a href=''>Twitter</a></li>
             <li class='gmail'><a href=''>Gmail</a></li>
-        </ul>    
+        </ul>
     </footer>
 </body>
 </html>
