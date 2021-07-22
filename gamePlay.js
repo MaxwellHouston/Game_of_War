@@ -7,6 +7,19 @@ let table = [];
 let player3 = [];
 let computer3 = [];
 let tiePot = [];
+let drawButton = document.getElementById('draw-button');
+let resetButton = document.getElementById('reset-button');
+let playerCounter = document.getElementById('pc');
+let computerCounter = document.getElementById('oc');
+let textBox = document.getElementById('game-text');
+let playerTieOne = document.getElementById('your-card-one');
+let playerTieTwo = document.getElementById('your-card-two');
+let playerTieThree = document.getElementById('your-card-three');
+let computerTieOne = document.getElementById('opp-card-one');
+let computerTieTwo = document.getElementById('opp-card-two');
+let computerTieThree = document.getElementById('opp-card-three');
+
+
 
 // Shuffles the deck
 const shuffleDeck = (array) =>{
@@ -47,6 +60,8 @@ const tiePlay = () =>{
     
     player3 = playerDeck.splice(0,3);
     computer3 = computerDeck.splice(0,3);
+    updateText('');
+
 
     if(player3[2].number > computer3[2].number){
         updateText(`${textBox.innerText}  Your ${player3[2].name} beats the computer's ${computer3[2].name}!
@@ -69,6 +84,14 @@ const tiePlay = () =>{
         tiePot.splice(0,tiePot.length);
         player3.splice(0,player3.length);
         computer3.splice(0,computer3.length);
+        drawButton.removeEventListener('click',tiePlay);
+        drawButton.addEventListener('click', playPhase);
+        playerTieOne.style.display = 'none';
+        computerTieOne.style.display = 'none';
+        playerTieTwo.style.display = 'none';
+        computerTieTwo.style.display = 'none';
+        playerTieThree.style.display = 'none';
+        computerTieThree.style.display = 'none';
     
     }
     else if (player3[2].number < computer3[2].number){
@@ -91,18 +114,23 @@ const tiePlay = () =>{
         player3.splice(0,player3.length);
         computer3.splice(0,computer3.length);
         tiePot.splice(0,tiePot.length);
-        
+        drawButton.removeEventListener('click',tiePlay);
+        drawButton.addEventListener('click', playPhase);
+        playerTieOne.style.display = 'none';
+        computerTieOne.style.display = 'none';
+        playerTieTwo.style.display = 'none';
+        computerTieTwo.style.display = 'none';
+        playerTieThree.style.display = 'none';
+        computerTieThree.style.display = 'none';   
     }
     else{
         updateText(`${textBox.innerText}   Your ${player3[2].name} ties to the computer's ${computer3[2].name}!
-        Let's up the ante!`);
+        Draw again!`);
         //adds the played cards to a pot
         for(let i = 0; i < player3.length; i++){
             tiePot.push(player3[i]);
             tiePot.push(computer3[i]);
         }
-        //Reruns tie procedure
-        tiePlay();
     }
 }
 // Game play phase
@@ -124,8 +152,9 @@ const playPhase = () =>{
     } 
     else{
     updateText(`Your ${table[0].name} ties the computer's ${table[1].name}! Now
-    each player puts three cards facedown and turns the last one up. Good luck!`);
-    tiePlay()
+    each player puts three cards facedown and turns the last one up. Press Draw`);
+    drawButton.removeEventListener('click', playPhase);
+    drawButton.addEventListener('click', tieDraw);
     }
     
     playerCounter.innerHTML = `${playerDeck.length}`;
@@ -143,20 +172,26 @@ const reset = () => {
     splitDeck(deck);
     playerCounter.innerHTML = `${playerDeck.length}`;
     computerCounter.innerHTML = `${computerDeck.length}`;
+    updateText('');
 }
-
-let drawButton = document.getElementById('draw-button');
-let resetButton = document.getElementById('reset-button');
-let playerCounter = document.getElementById('pc');
-let computerCounter = document.getElementById('oc');
-let textBox = document.getElementById('game-text');
 
 const updateText = (input) => {
     textBox.innerHTML= `${input}`
 }
-drawButton.onclick = playPhase;
-resetButton.onclick = reset;
 
+const tieDraw = () => {
+    playerTieOne.style.display = 'block';
+    computerTieOne.style.display = 'block';
+    playerTieTwo.style.display = 'block';
+    computerTieTwo.style.display = 'block';
+    playerTieThree.style.display = 'block';
+    computerTieThree.style.display = 'block';
+    drawButton.removeEventListener('click', tieDraw);
+    drawButton.addEventListener('click', tiePlay);
+}
+
+drawButton.addEventListener('click', playPhase);
+resetButton.addEventListener('click', reset);
 
 
 

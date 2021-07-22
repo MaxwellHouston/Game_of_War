@@ -170,23 +170,43 @@ h1 {
     width: 100px;
     border: 1px solid red;
     border-radius: 8px;
-    background-color: blue;
+    
+}
+
+#your-tie-one .card-one,
+#your-tie-one .card-two,
+#your-tie-one .card-three,
+#your-tie-two .card-one,
+#your-tie-two .card-two,
+#your-tie-two .card-three {
+    background-image: url(./images/blueBack.png);
+    background-size: cover;
+}
+
+#opp-tie-one .card-one,
+#opp-tie-one .card-two,
+#opp-tie-one .card-three,
+#opp-tie-two .card-one,
+#opp-tie-two .card-two,
+#opp-tie-two .card-three  {
+    background-image: url(./images/redBack.png);
+    background-size: cover;
 }
 
 .card-one {
     right: -100px;
-    display: block;
+    display: none;
 }
 
 .card-two {
     top: -150px;
     right: -50px;
-    display: block;
+    display: none;
 }
 
 .card-three {
     top: -300px;
-    display: block;
+    display: none;
 }
 
 .button-box {
@@ -219,6 +239,7 @@ button {
     position: relative;
     top: -950px;
     left: 25px;
+    font-size: 20px;
     
 }
 
