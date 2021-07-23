@@ -18,6 +18,8 @@ let playerTieThree = document.getElementById('your-card-three');
 let computerTieOne = document.getElementById('opp-card-one');
 let computerTieTwo = document.getElementById('opp-card-two');
 let computerTieThree = document.getElementById('opp-card-three');
+let yourPlay = document.getElementById('your-play');
+let oppPlay = document.getElementById('opp-play');
 
 
 
@@ -61,7 +63,8 @@ const tiePlay = () =>{
     player3 = playerDeck.splice(0,3);
     computer3 = computerDeck.splice(0,3);
     updateText('');
-
+    playerTieThree.style.backgroundImage = `url("${player3[2].img}")`;
+    computerTieThree.style.backgroundImage = `url("${computer3[2].img}")`;
 
     if(player3[2].number > computer3[2].number){
         updateText(`${textBox.innerText}  Your ${player3[2].name} beats the computer's ${computer3[2].name}!
@@ -69,8 +72,7 @@ const tiePlay = () =>{
         //Adding winnings to your deck
         for(let i = 0; i < player3.length; i++){
             playerDeck.push(player3[i]);
-            playerDeck.push(computer3[i]);
-           
+            playerDeck.push(computer3[i]);   
         }
         if(tiePot.length!==0){
             for(let x = 0; x < tiePot.length; x++){
@@ -86,12 +88,6 @@ const tiePlay = () =>{
         computer3.splice(0,computer3.length);
         drawButton.removeEventListener('click',tiePlay);
         drawButton.addEventListener('click', playPhase);
-        playerTieOne.style.display = 'none';
-        computerTieOne.style.display = 'none';
-        playerTieTwo.style.display = 'none';
-        computerTieTwo.style.display = 'none';
-        playerTieThree.style.display = 'none';
-        computerTieThree.style.display = 'none';
     
     }
     else if (player3[2].number < computer3[2].number){
@@ -115,13 +111,7 @@ const tiePlay = () =>{
         computer3.splice(0,computer3.length);
         tiePot.splice(0,tiePot.length);
         drawButton.removeEventListener('click',tiePlay);
-        drawButton.addEventListener('click', playPhase);
-        playerTieOne.style.display = 'none';
-        computerTieOne.style.display = 'none';
-        playerTieTwo.style.display = 'none';
-        computerTieTwo.style.display = 'none';
-        playerTieThree.style.display = 'none';
-        computerTieThree.style.display = 'none';   
+        drawButton.addEventListener('click', playPhase);                  
     }
     else{
         updateText(`${textBox.innerText}   Your ${player3[2].name} ties to the computer's ${computer3[2].name}!
@@ -135,7 +125,11 @@ const tiePlay = () =>{
 }
 // Game play phase
 const playPhase = () =>{
+    clearTie();
+    endGame();
     drawPhase();
+    yourPlay.style.backgroundImage = `url("${table[0].img}")`;
+    oppPlay.style.backgroundImage = `url("${table[1].img}")`;
     if(table[0].number > table[1].number){
     updateText(`Your ${table[0].name} beats the computer's ${table[1].name}!`);
     playerDeck.push(table[0]);
@@ -172,6 +166,14 @@ const reset = () => {
     splitDeck(deck);
     playerCounter.innerHTML = `${playerDeck.length}`;
     computerCounter.innerHTML = `${computerDeck.length}`;
+    playerTieOne.style.display = 'none';
+    computerTieOne.style.display = 'none';
+    playerTieTwo.style.display = 'none';
+    computerTieTwo.style.display = 'none';
+    playerTieThree.style.display = 'none';
+    computerTieThree.style.display = 'none';
+    yourPlay.style.backgroundImage = '';
+    oppPlay.style.backgroundImage = '';
     updateText('');
 }
 
@@ -190,7 +192,28 @@ const tieDraw = () => {
     drawButton.addEventListener('click', tiePlay);
 }
 
-drawButton.addEventListener('click', playPhase);
+const clearTie = () => {
+    playerTieThree.style.backgroundImage = '';
+    computerTieThree.style.backgroundImage = '';
+    playerTieOne.style.display = 'none';
+    computerTieOne.style.display = 'none';
+    playerTieTwo.style.display = 'none';
+    computerTieTwo.style.display = 'none';
+    playerTieThree.style.display = 'none';
+    computerTieThree.style.display = 'none';
+}
+
+const endGame = () => {
+    if(playerDeck.length === 0) {
+        console.log('You Win!')
+    }
+    else if(computerDeck.length === 0) {
+        console.log('You lose')
+    }
+}
+
+
+drawButton.addEventListener('click',playPhase);
 resetButton.addEventListener('click', reset);
 
 
