@@ -155,16 +155,6 @@ h1 {
     left: 100px;
 }
 
-#your-tie-two {
-    top: -825px;
-    left: 500px;
-}
-
-#opp-tie-two {
-    top: -440px;
-    left: 100px;
-}
-
 .tie-container div {
     position: relative;
     height: 150px;
@@ -176,20 +166,14 @@ h1 {
 
 #your-tie-one .card-one,
 #your-tie-one .card-two,
-#your-tie-one .card-three,
-#your-tie-two .card-one,
-#your-tie-two .card-two,
-#your-tie-two .card-three {
+#your-tie-one .card-three {
     background-image: url(./images/blueBack.png);
     background-size: cover;
 }
 
 #opp-tie-one .card-one,
 #opp-tie-one .card-two,
-#opp-tie-one .card-three,
-#opp-tie-two .card-one,
-#opp-tie-two .card-two,
-#opp-tie-two .card-three  {
+#opp-tie-one .card-three {
     background-image: url(./images/redBack.png);
     background-size: cover;
 }
@@ -238,7 +222,7 @@ button {
     font-family: 'Papyrus';
     background-color: black;
     position: relative;
-    top: -950px;
+    top: -650px;
     left: 25px;
     font-size: 20px;
     
